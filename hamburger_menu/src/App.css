@@ -1,0 +1,34 @@
+.hamburger-container {
+  cursor: pointer;
+}
+
+.hamburger {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger .line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hamburger.open .line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 50%;
+}
+
+.hamburger.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 50%;
+}
