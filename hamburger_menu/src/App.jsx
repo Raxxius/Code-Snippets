@@ -1,24 +1,31 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import './App.css'
+import "./App.css";
 
 const Hamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
-  const handleClick = () => {
+  const handleOpenBurger = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
   return (
-    <div className="hamburger-container" onClick={handleClick}>
-      <div className={`hamburger ${isOpen ? 'open' : ''}`}>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
+    <div className={darkMode ? "wrapper light" : "wrapper dark"}>
+      <button className="dark-mode" onClick={handleDarkMode}>Dark mode</button>
+      <div className="hamburger-container" onClick={handleOpenBurger}>
+        <div className={`hamburger ${isOpen ? "open" : ""}`}>
+          <div className={darkMode ? "line dark" : "line light"}></div>
+          <div className={darkMode ? "line dark" : "line light"}></div>
+          <div className={darkMode ? "line dark" : "line light"}></div>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Hamburger;
-
